@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   
   root 'storefront#all_items'
 
-  get 'cart/add_to_cart' => 'cart#add_to_cart'
-  get 'cart/view_order' => 'cart#view_order'
-  get 'cart/checkout' => 'cart#checkout'
+  post 'add_to_cart' => 'cart#add_to_cart'
+  get 'view_order' => 'cart#view_order'
+  get 'checkout' => 'cart#checkout'
 
   resources :line_items
   resources :orders

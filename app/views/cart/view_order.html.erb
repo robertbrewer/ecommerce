@@ -1,2 +1,9 @@
 <h1>Cart#view_order</h1>
 <p>Find me in app/views/cart/view_order.html.erb</p>
+
+<% @line_items.each do |item| %>
+<ul>
+<li><%= item.product.name %></li>
+</ul>
+<% end %>
+<%= link_to "Proceed to Checkout?", checkout_path %>

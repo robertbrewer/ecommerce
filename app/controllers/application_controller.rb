@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :categories, :brands, :authenticate_user!
 
+
   def categories
 	@categories = Category.all
   end
