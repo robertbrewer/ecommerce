@@ -1,15 +1,25 @@
 Rails.application.routes.draw do
-  get 'storefront/all_items'
-
-  get 'storefront/items_by_category'
-
-  get 'storefront/items_by_brand'
-
+  
   root 'storefront#all_items'
 
+  get 'cart/add_to_cart' => 'cart#add_to_cart'
+  get 'cart/view_order' => 'cart#view_order'
+  get 'cart/checkout' => 'cart#checkout'
+
+  resources :line_items
+  resources :orders
+  devise_for :users
+
+  get 'categorical' => 'storefront#items_by_category'
+  get 'branding' => 'storefront#items_by_brand'
+  get 'all' => 'storefront#all_items'
+  
   resources :categories
   resources :products
 
+  # get 'storefront/all_items'
+  # get 'storefront/items_by_category'
+  # get 'storefront/items_by_brand'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
